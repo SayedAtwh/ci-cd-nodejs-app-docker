@@ -192,7 +192,7 @@ app.get('/', (req, res) => {
             <a href="/azkar/evening" class="btn btn-outline">🌙 أذكار المساء</a>
         </div>
         <div style="margin-top: 40px; opacity: 0.6;">
-            <p> Sayed Atwhتم بناء هذا التطبيق بواسطة Jenkins Pipeline</p>
+            <p> Sayed Atwh sayed aliتم بناء هذا التطبيق بواسطة Jenkins Pipeline</p>
         </div>
     `));
 });
