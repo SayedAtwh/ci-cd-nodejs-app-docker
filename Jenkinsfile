@@ -19,9 +19,9 @@ pipeline {
 
         stage('Setup & Test') {
             steps {
-                echo '📦 Installing dependencies and running tests...'
-                sh 'npm install'
-                sh 'npm test'
+                echo '📦 Installing dependencies and running tests using a Docker container...'
+                // Using docker run to ensure npm is available without installing it on the Jenkins host
+                sh 'docker run --rm -v ${WORKSPACE}:/app -w /app node:18-alpine sh -c "npm install && npm test"'
             }
         }
 
