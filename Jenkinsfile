@@ -17,19 +17,11 @@ pipeline {
             }
         }
 
-        stage('Setup & Test') {
-            steps {
-                echo '📦 Installing dependencies and running tests using a Docker container...'
-                // Using docker run to ensure npm is available without installing it on the Jenkins host
-                sh 'docker run --rm -v ${WORKSPACE}:/app -w /app node:18-alpine sh -c "npm install && npm test"'
-            }
-        }
-
-        stage('Docker Build & Tag') {
+        stage('Test & Build') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: env.DOCKERHUB_CRED, passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        echo '🏗️ Building Docker image...'
+                        echo '🏗️ Building and Testing Docker image (Tests run inside Dockerfile)...'
                         sh "docker build -t ${USER}/${IMAGE_NAME}:${BUILD_NUMBER} ."
                         sh "docker tag ${USER}/${IMAGE_NAME}:${BUILD_NUMBER} ${USER}/${IMAGE_NAME}:latest"
                     }

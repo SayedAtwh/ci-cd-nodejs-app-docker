@@ -12,8 +12,8 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Run tests as part of the build (optional but recommended for CI/CD)
-# RUN npm test
+# Run tests as part of the build (Ensures CI/CD safety)
+RUN npm test
 
 # --- Stage 2: Production ---
 FROM node:18-alpine
