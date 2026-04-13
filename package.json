@@ -1,0 +1,26 @@
+{
+  "name": "falcon-web-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js web app that shows Falcon image in the center",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "falcon",
+    "docker",
+    "jenkins"
+  ],
+  "author": "your-name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
